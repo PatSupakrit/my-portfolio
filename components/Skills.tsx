@@ -35,8 +35,8 @@ export default function Skills() {
       { name: 'GitHub', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
       { name: 'Power BI', logo: 'https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg' },
       { name: 'TensorFlow', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg' },
-      { name: 'LangChain', logo: 'https://cdn.worldvectorlogo.com/logos/langchain.svg' },
-      { name: 'VS Code', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
+      { name: 'LangChain', logo: 'https://miro.medium.com/v2/resize:fit:1100/format:webp/1*7Zx5IHNiz3U7GZ64wEuESg.png' },
+      { name: 'VS Code', logo: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/langchain.svg" },
     ],
   };
 
@@ -57,7 +57,7 @@ export default function Skills() {
           {skillCategories.map(({ icon: Icon, title, items }) => (
             <div
               key={title}
-              className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/20"
+              className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/20 hover:border-purple-500/30 transition-colors"
             >
               <div className="flex items-center gap-3 mb-4">
                 <Icon className="text-purple-400" size={24} />
@@ -74,7 +74,6 @@ export default function Skills() {
                       alt={`${skill.name} logo`}
                       className="w-5 h-5 object-contain"
                       onError={(e) => {
-                        // Fallback if image fails to load
                         e.currentTarget.style.display = 'none';
                       }}
                     />

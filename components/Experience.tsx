@@ -51,14 +51,13 @@ export default function Experience() {
             <div
               key={index}
               className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/20 hover:border-purple-500/40 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 hover:-translate-y-1"
-              style={{ animationDelay: `${index * 150}ms` }}
             >
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0">
                   <img
                     src={exp.logo}
                     alt={`${exp.title} logo`}
-                    className="w-36 h-36 object-contain bg-white rounded-lg p-2 hover:scale-105 transition-transform"
+                    className="w-20 h-20 object-contain bg-white rounded-lg p-2 hover:scale-105 transition-transform"
                   />
                 </div>
                 <div className="flex-1">

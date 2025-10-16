@@ -61,14 +61,13 @@ export default function Navigation({
       </div>
 
       {mobileMenuOpen && (
-        <div className="md:hidden bg-slate-900/95 backdrop-blur-md animate-in slide-in-from-top duration-200">
+        <div className="md:hidden bg-slate-900/95 backdrop-blur-md">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {menuItems.map((item, index) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
                 className="block w-full text-left px-3 py-2 text-base font-medium text-gray-300 hover:text-purple-400 hover:bg-slate-800 rounded-md transition-all"
-                style={{ animationDelay: `${index * 50}ms` }}
               >
                 {item}
               </button>

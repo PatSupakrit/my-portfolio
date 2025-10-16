@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { X } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface Project {
   title: string;
@@ -10,7 +10,7 @@ interface Project {
   description: string[];
   tags: string[];
   logo: string;
-  images: string[]; // เพิ่มรูปภาพผลงาน
+  images: string[];
 }
 
 interface Training {
@@ -34,12 +34,7 @@ export default function Projects() {
       ],
       tags: ['Python', 'Flask', 'MySQL', 'AI', 'Genetic Algorithm'],
       logo: 'https://upload.wikimedia.org/wikipedia/commons/7/75/Arena_of_Valor_logo.png',
-      images: [
-        '/rov-1.jpg',
-        '/rov-2.jpg',
-        '/rov-3.jpg',
-        '/rov-4.jpg',
-      ], // ใส่รูปภาพผลงานที่นี่
+      images: ['/rov-1.jpg', '/rov-2.jpg', '/rov-3.jpg', '/rov-4.jpg'],
     },
     {
       title: 'Rice Mill Management System',
@@ -51,14 +46,7 @@ export default function Projects() {
       ],
       tags: ['PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
       logo: 'https://cdn-icons-png.flaticon.com/512/2329/2329116.png',
-      images: [
-        '/rice-1.png',
-        '/rice-2.png',
-        '/rice-3.png',
-        '/rice-4.png',
-        '/rice-5.png',
-        '/rice-6.png',
-      ],
+      images: ['/rice-1.png', '/rice-2.png', '/rice-3.png', '/rice-4.png', '/rice-5.png', '/rice-6.png'],
     },
   ];
 
@@ -93,7 +81,7 @@ export default function Projects() {
 
   const nextImage = () => {
     if (selectedProject) {
-      setCurrentImageIndex((prev) => 
+      setCurrentImageIndex((prev) =>
         prev === selectedProject.images.length - 1 ? 0 : prev + 1
       );
     }
@@ -101,7 +89,7 @@ export default function Projects() {
 
   const prevImage = () => {
     if (selectedProject) {
-      setCurrentImageIndex((prev) => 
+      setCurrentImageIndex((prev) =>
         prev === 0 ? selectedProject.images.length - 1 : prev - 1
       );
     }
@@ -118,23 +106,21 @@ export default function Projects() {
             <div
               key={index}
               onClick={() => openModal(project)}
-              className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/20 hover:border-purple-500/40 transition-all hover:transform hover:scale-105 cursor-pointer"
+              className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/20 hover:border-purple-500/40 transition-all hover:transform hover:scale-105 cursor-pointer group"
             >
               <div className="flex items-start gap-3 mb-4">
                 <div className="flex-shrink-0">
                   <img
                     src={project.logo}
                     alt={`${project.title} logo`}
-                    className="w-36 h-36 object-contain bg-white rounded-lg p-2"
+                    className="w-16 h-16 object-contain bg-white rounded-lg p-2"
                   />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-semibold text-white mb-1">
+                  <h3 className="text-xl font-semibold text-white mb-1 group-hover:text-purple-300 transition-colors">
                     {project.title}
                   </h3>
-                  <p className="text-sm text-purple-300 mb-2">
-                    {project.subtitle}
-                  </p>
+                  <p className="text-sm text-purple-300 mb-2">{project.subtitle}</p>
                   <p className="text-xs text-gray-400 mb-3">{project.period}</p>
                 </div>
               </div>
@@ -165,24 +151,24 @@ export default function Projects() {
 
         {/* Modal for Image Gallery */}
         {selectedProject && (
-          <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
-            <div className="relative max-w-5xl w-full">
+          <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4" onClick={closeModal}>
+            <div className="relative max-w-5xl w-full" onClick={(e) => e.stopPropagation()}>
               {/* Close Button */}
               <button
                 onClick={closeModal}
-                className="absolute top-4 right-4 z-10 p-2 bg-purple-600 hover:bg-purple-700 rounded-full transition-colors"
+                className="absolute -top-12 right-0 p-2 bg-purple-600 hover:bg-purple-700 rounded-full transition-colors"
               >
                 <X size={24} className="text-white" />
               </button>
 
               {/* Image */}
-              <div className="bg-slate-800 rounded-2xl overflow-hidden">
+              <div className="bg-slate-800 rounded-2xl overflow-hidden relative">
                 <img
                   src={selectedProject.images[currentImageIndex]}
                   alt={`${selectedProject.title} screenshot ${currentImageIndex + 1}`}
                   className="w-full h-auto max-h-[70vh] object-contain"
                 />
-                
+
                 {/* Navigation Arrows */}
                 {selectedProject.images.length > 1 && (
                   <>
@@ -190,13 +176,13 @@ export default function Projects() {
                       onClick={prevImage}
                       className="absolute left-4 top-1/2 transform -translate-y-1/2 p-3 bg-purple-600/80 hover:bg-purple-700 rounded-full transition-colors"
                     >
-                      <span className="text-white text-2xl">‹</span>
+                      <ChevronLeft className="text-white" size={24} />
                     </button>
                     <button
                       onClick={nextImage}
                       className="absolute right-4 top-1/2 transform -translate-y-1/2 p-3 bg-purple-600/80 hover:bg-purple-700 rounded-full transition-colors"
                     >
-                      <span className="text-white text-2xl">›</span>
+                      <ChevronRight className="text-white" size={24} />
                     </button>
                   </>
                 )}
@@ -241,7 +227,7 @@ export default function Projects() {
             {training.map((course, index) => (
               <div
                 key={index}
-                className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-purple-500/20"
+                className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-6 border border-purple-500/20 hover:border-purple-500/30 transition-colors"
               >
                 <h4 className="text-lg font-semibold text-purple-300 mb-3">
                   {course.title}

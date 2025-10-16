@@ -15,7 +15,7 @@ export default function About() {
   return (
     <section id="about" className="py-20 px-4">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl font-bold text-white mb-12 text-center animate-fade-in">
+        <h2 className="text-4xl font-bold text-white mb-12 text-center">
           About Me
         </h2>
         <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/20 hover:border-purple-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10">
@@ -30,7 +30,7 @@ export default function About() {
                   <img
                     src="https://www.nu.ac.th/wp-content/uploads/2023/07/NULOGO-Download.png"
                     alt="Naresuan University Logo"
-                    className="w-40 h-40 object-contain rounded-lg p-2 hover:scale-105 transition-transform"
+                    className="w-24 h-24 object-contain rounded-lg p-2 hover:scale-105 transition-transform"
                   />
                 </div>
                 <div className="text-gray-300">
@@ -47,11 +47,10 @@ export default function About() {
                 <h3 className="text-xl font-semibold text-white">Soft Skills</h3>
               </div>
               <ul className="text-gray-300 space-y-2">
-                {softSkills.map((skill, index) => (
+                {softSkills.map((skill) => (
                   <li 
                     key={skill} 
                     className="flex items-center gap-3 hover:translate-x-2 transition-transform"
-                    style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <div className="w-2 h-2 bg-purple-400 rounded-full"></div>
                     {skill}
