@@ -8,7 +8,7 @@ interface HeroProps {
 }
 
 export default function Hero({ scrollToSection }: HeroProps) {
-  const profileImageUrl = '/profile.png';
+  const profileImageUrl = '/supakrit.jpg';
   const useProfileImage = true;
 
   return (
@@ -40,9 +40,10 @@ export default function Hero({ scrollToSection }: HeroProps) {
         </p>
         <p className="text-gray-300 text-lg max-w-2xl mx-auto mb-8">
           Recent Computer Science graduate from Naresuan University with
-          moderate skills in full-stack development (React.js, Node.js, Python)
-          and hands-on experience in AI, Modern Framework, and web application
-          projects.
+          experience in AI, modern frameworks, and web application projects. I
+          am eager to grow in career path and contribute to your team with my
+          strong problem-solving mindset, adaptability, and commitment to
+          continuous learning.
         </p>
         <div className="flex flex-wrap justify-center gap-4 mb-8">
           <a
@@ -64,7 +65,7 @@ export default function Hero({ scrollToSection }: HeroProps) {
             LinkedIn
           </a>
           <a
-            href="/Resume_Supakrit.pdf"
+             href={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/Supakrit_Resume2.pdf`}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-all hover:scale-105"
@@ -73,14 +74,14 @@ export default function Hero({ scrollToSection }: HeroProps) {
             Resume
           </a>
           <button
-            onClick={() => scrollToSection('contact')}
+            onClick={() => scrollToSection("contact")}
             className="px-6 py-3 border-2 border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white rounded-lg transition-all hover:scale-105"
           >
             Contact Me
           </button>
         </div>
         <button
-          onClick={() => scrollToSection('about')}
+          onClick={() => scrollToSection("about")}
           className="animate-bounce text-purple-400 hover:text-purple-300 transition-colors"
         >
           <ChevronDown size={32} />
