@@ -35,10 +35,8 @@ export default function Hero({ scrollToSection }: HeroProps) {
         <h1 className="text-5xl sm:text-6xl font-bold text-white mb-4">
           Supakrit Amonsaksawat
         </h1>
-        <p className="text-xl sm:text-2xl text-purple-300 mb-6">
-          Full-Stack Developer | Data Engineer & AI
-        </p>
-        <p className="text-gray-300 text-lg max-w-2xl mx-auto mb-8">
+        
+        <p className="text-gray-300 text-lg max-w-prose mx-auto mb-8 leading-relaxed md:leading-loose">
           Recent Computer Science graduate from Naresuan University with
           experience in AI, modern frameworks, and web application projects. I
           am eager to grow in career path and contribute to your team with my

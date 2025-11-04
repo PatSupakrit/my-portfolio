@@ -59,14 +59,6 @@ export default function Projects() {
         'Applied image recognition techniques to real-world problems',
       ],
     },
-    {
-      title: 'Cloud Native Application',
-      points: [
-        'Gained theoretical knowledge in cloud-native application design',
-        'Hands-on experience with Azure and Google Cloud infrastructure',
-        'Developed skills in GitHub for version control and collaboration',
-      ],
-    },
   ];
 
   const openModal = (project: Project) => {
